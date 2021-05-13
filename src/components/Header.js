@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import Button from "./Button";
+import Tasks from "./Tasks";
 
 const Header = ({ title }) => {
   function onClick() {
