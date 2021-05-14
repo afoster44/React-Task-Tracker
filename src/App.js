@@ -58,7 +58,7 @@ function App() {
         >
           <Header onAdd={addTask} />
           <AddTask onAdd={addTask} />
-          <div className="col-sm-12">
+          <div className="col-sm-12 mt-3">
             {tasks.length > 0 ? (
               <Tasks
                 onToggle={toggleReminder}
