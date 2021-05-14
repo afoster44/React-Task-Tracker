@@ -1,9 +1,23 @@
 import { useState } from "react";
 
-const Modal = () => {
+const Modal = ({ onAdd }) => {
   const [text, setText] = useState("");
   const [day, setDay] = useState("");
-  const [reminder, setReminder] = useState("false");
+  const [reminder, setReminder] = useState(false);
+
+  function onSubmit(e) {
+    e.preventDefault();
+
+    if (!text) {
+      window.alert("Please add text before adding!");
+      return;
+    }
+
+    onAdd({ text, day, reminder });
+    setText("");
+    setDay("");
+    setReminder(false);
+  }
 
   return (
     <div className="col-sm-4 d-flex align-items-center">
@@ -40,7 +54,7 @@ const Modal = () => {
               </button>
             </div>
             <div className="modal-body">
-              <form>
+              <form onSubmit={onSubmit}>
                 <div className="mb-3">
                   <label className="form-label">
                     Enter the title of the task below

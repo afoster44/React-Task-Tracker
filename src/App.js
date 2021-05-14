@@ -56,7 +56,7 @@ function App() {
           style={{ minHeight: "80vh" }}
           className="col-sm-8 card border-dark"
         >
-          <Header />
+          <Header onAdd={addTask} />
           <AddTask onAdd={addTask} />
           <div className="col-sm-12">
             {tasks.length > 0 ? (
