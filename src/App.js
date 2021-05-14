@@ -1,6 +1,5 @@
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
-import Modal from "./components/Modal";
 import AddTask from "./components/AddTask";
 import { useState } from "react";
 
@@ -26,14 +25,17 @@ function App() {
     },
   ]);
 
+  // add task
+  function addTask(task) {
+    const id = Math.floor(Math.random() * 10000) + 1;
+    const newTask = { id, ...task };
+    setTasks([...tasks, newTask]);
+  }
+
   // Delete Task
 
   function deleteTask(id) {
     setTasks(tasks.filter((task) => task.id !== id));
-  }
-
-  function addTask(task) {
-    setTasks(tasks.map((task) => [...tasks, task]));
   }
 
   const toggleReminder = (id) => {
@@ -52,7 +54,7 @@ function App() {
           className="col-sm-8 offset-2 mt-5 card border-dark"
         >
           <Header />
-          <AddTask />
+          <AddTask onAdd={addTask} />
           <div className="col-sm-12">
             {tasks.length > 0 ? (
               <Tasks

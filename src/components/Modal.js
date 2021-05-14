@@ -1,7 +1,6 @@
-import { FaPlus } from "react-icons/fa";
 import { useState } from "react";
 
-const Modal = ({ onClick }) => {
+const Modal = () => {
   const [text, setText] = useState("");
   const [day, setDay] = useState("");
   const [reminder, setReminder] = useState("false");
@@ -9,7 +8,7 @@ const Modal = ({ onClick }) => {
   return (
     <div className="col-sm-4 d-flex align-items-center">
       <button
-        class="btn btn-success btn-block"
+        className="btn btn-success btn-block"
         aria-hidden="true"
         type="button"
         data-toggle="modal"
@@ -18,77 +17,75 @@ const Modal = ({ onClick }) => {
         Add
       </button>
       <div
-        class="modal fade"
+        className="modal fade"
         id="exampleModal"
         tabindex="-1"
         role="dialog"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">
+        <div className="modal-dialog" role="document">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLabel">
                 Make a new Task please :P
               </h5>
               <button
                 type="button"
-                class="close"
+                className="close"
                 data-dismiss="modal"
                 aria-label="Close"
               >
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body">
+            <div className="modal-body">
               <form>
-                <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">
+                <div className="mb-3">
+                  <label className="form-label">
                     Enter the title of the task below
                   </label>
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     id="text"
                     placeholder="Title"
                     value={text}
                     onChange={(e) => setText(e.target.value)}
                   />
                 </div>
-                <div class="mb-3">
-                  <label for="exampleInputPassword1" class="form-label">
+                <div className="mb-3">
+                  <label className="form-label">
                     Enter the date and time below
                   </label>
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     id="date-time"
                     placeholder="Date & Time"
                     value={day}
-                    onChange={(e) => setReminder(e.target.value)}
+                    onChange={(e) => setDay(e.target.value)}
                   />
                 </div>
-                <div class="mb-3 form-check">
+                <div className="mb-3 form-check">
                   <input
                     type="checkbox"
-                    class="form-check-input"
+                    className="form-check-input"
                     id="exampleCheck1"
                     value={reminder}
-                    onChange={(e) => setText(e.currentTarget.checked)}
+                    onChange={(e) => setReminder(e.currentTarget.checked)}
                   />
-                  <label class="form-check-label" for="exampleCheck1">
-                    Reminder
-                  </label>
+                  <label className="form-check-label">Reminder</label>
                 </div>
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" className="btn btn-primary">
                   Submit
                 </button>
               </form>
             </div>
-            <div class="modal-footer">
+            <div className="modal-footer">
               <button
                 type="button"
-                class="btn btn-secondary"
+                className="btn btn-secondary"
                 data-dismiss="modal"
               >
                 Close

@@ -1,15 +1,28 @@
 import { useState } from "react";
 
-const AddTask = () => {
+const AddTask = ({ onAdd }) => {
   const [text, setText] = useState("");
   const [day, setDay] = useState("");
   const [reminder, setReminder] = useState(false);
+
+  function onSubmit(e) {
+    e.preventDefault();
+
+    if (!text) {
+      window.alert("Input text please");
+      return;
+    }
+
+    onAdd({ text, day, reminder });
+
+    setText("");
+    setDay("");
+    setReminder(false);
+  }
   return (
-    <form className="col-sm-12">
+    <form className="col-sm-12" onSubmit={onSubmit}>
       <div className="mb-3">
-        <label for="exampleInputEmail1" class="form-label">
-          Enter the title of the task below
-        </label>
+        <label className="form-label">Enter the title of the task below</label>
         <input
           type="text"
           className="form-control"
@@ -23,24 +36,25 @@ const AddTask = () => {
         <label>Enter the date and time below</label>
         <input
           type="text"
-          class="form-control"
+          className="form-control"
           id="day"
           placeholder="Date & Time"
           value={day}
           onChange={(e) => setDay(e.target.value)}
         />
       </div>
-      <div class="mb-3 ml-3">
+      <div className="mb-3 ml-3">
         <input
           type="checkbox"
-          class="form-check-input"
+          className="form-check-input"
+          checked={reminder}
           id="exampleCheck1"
           value={reminder}
           onChange={(e) => setReminder(e.currentTarget.checked)}
         />
-        <label class="form-check-label ml-3">Reminder?</label>
+        <label className="form-check-label ml-3">Reminder?</label>
       </div>
-      <button type="submit" class="btn btn-success btn-block">
+      <button type="submit" className="btn btn-success btn-block">
         Submit
       </button>
     </form>

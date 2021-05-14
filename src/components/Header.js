@@ -1,6 +1,4 @@
 import PropTypes from "prop-types";
-import Button from "./Button";
-import Tasks from "./Tasks";
 import Modal from "./Modal";
 
 const Header = ({ title }) => {
