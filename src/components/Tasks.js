@@ -4,7 +4,10 @@ const Tasks = ({ tasks, onDelete, onToggle }) => {
   return (
     <div>
       {tasks.map((task) => (
-        <div className="col-12 mt-3">
+        <div
+          className="col-12 mt-3 card mb-3 bg-light"
+          style={{ minHeight: "100%", overflow: "auto" }}
+        >
           <Task
             onToggle={onToggle}
             key={task.id}

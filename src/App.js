@@ -48,10 +48,13 @@ function App() {
 
   return (
     <div className="App">
-      <div className="container-fluid d-flex align-items-center justify-content-center">
+      <div
+        className="container-fluid d-flex justify-content-center align-items-center"
+        style={{ minHeight: "100vh" }}
+      >
         <div
           style={{ minHeight: "80vh" }}
-          className="col-sm-8 offset-2 mt-5 card border-dark"
+          className="col-sm-8 card border-dark"
         >
           <Header />
           <AddTask onAdd={addTask} />
