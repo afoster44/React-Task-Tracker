@@ -1,13 +1,22 @@
-const Modal = () => {
+import { FaPlus } from "react-icons/fa";
+import { useState } from "react";
+
+const Modal = ({ onClick }) => {
+  const [text, setText] = useState("");
+  const [day, setDay] = useState("");
+  const [reminder, setReminder] = useState("false");
+
   return (
-    <div>
-      <i
-        class="fa fa-plus btn btn-danger"
+    <div className="col-sm-4 d-flex align-items-center">
+      <button
+        class="btn btn-success btn-block"
         aria-hidden="true"
         type="button"
         data-toggle="modal"
         data-target="#exampleModal"
-      ></i>
+      >
+        Add
+      </button>
       <div
         class="modal fade"
         id="exampleModal"
@@ -20,7 +29,7 @@ const Modal = () => {
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">
-                Make a new Vault please :P
+                Make a new Task please :P
               </h5>
               <button
                 type="button"
@@ -35,26 +44,28 @@ const Modal = () => {
               <form>
                 <div class="mb-3">
                   <label for="exampleInputEmail1" class="form-label">
-                    Email address
+                    Enter the title of the task below
                   </label>
                   <input
-                    type="email"
+                    type="text"
                     class="form-control"
-                    id="exampleInputEmail1"
-                    aria-describedby="emailHelp"
+                    id="text"
+                    placeholder="Title"
+                    value={text}
+                    onChange={(e) => setText(e.target.value)}
                   />
-                  <div id="emailHelp" class="form-text">
-                    We'll never share your email with anyone else.
-                  </div>
                 </div>
                 <div class="mb-3">
                   <label for="exampleInputPassword1" class="form-label">
-                    Password
+                    Enter the date and time below
                   </label>
                   <input
-                    type="password"
+                    type="text"
                     class="form-control"
-                    id="exampleInputPassword1"
+                    id="date-time"
+                    placeholder="Date & Time"
+                    value={day}
+                    onChange={(e) => setReminder(e.target.value)}
                   />
                 </div>
                 <div class="mb-3 form-check">
@@ -62,9 +73,11 @@ const Modal = () => {
                     type="checkbox"
                     class="form-check-input"
                     id="exampleCheck1"
+                    value={reminder}
+                    onChange={(e) => setText(e.currentTarget.checked)}
                   />
                   <label class="form-check-label" for="exampleCheck1">
-                    Check me out
+                    Reminder
                   </label>
                 </div>
                 <button type="submit" class="btn btn-primary">

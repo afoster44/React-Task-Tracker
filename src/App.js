@@ -1,6 +1,7 @@
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
 import Modal from "./components/Modal";
+import AddTask from "./components/AddTask";
 import { useState } from "react";
 
 function App() {
@@ -45,13 +46,14 @@ function App() {
 
   return (
     <div className="App">
-      <div className="container-fluid">
+      <div className="container-fluid d-flex align-items-center justify-content-center">
         <div
           style={{ minHeight: "80vh" }}
           className="col-sm-8 offset-2 mt-5 card border-dark"
         >
           <Header />
-          <div className="col-12">
+          <AddTask />
+          <div className="col-sm-12">
             {tasks.length > 0 ? (
               <Tasks
                 onToggle={toggleReminder}
@@ -61,9 +63,6 @@ function App() {
             ) : (
               "No tasks available"
             )}
-          </div>
-          <div className="col-12">
-            <Modal />
           </div>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import Button from "./Button";
 import Tasks from "./Tasks";
+import Modal from "./Modal";
 
 const Header = ({ title }) => {
   function onClick() {
@@ -9,10 +10,10 @@ const Header = ({ title }) => {
   return (
     <header>
       <div className="row">
-        <div className="col-sm-8 text-center">
+        <div className="col-sm-7 offset-sm-1 mt-3">
           <h1>{title}</h1>
         </div>
-        <Button text="Add" onClick={onClick} />
+        <Modal text="Add" onClick={onClick} />
       </div>
     </header>
   );
